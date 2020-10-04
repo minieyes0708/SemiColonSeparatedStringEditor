@@ -1,0 +1,64 @@
+﻿<Window x:Class="SemiColonSeparatedStringEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SemiColonSeparatedStringEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Name="gridSeparatedItemModel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <TextBlock Text="Enter SemiColonSeparatedString Here: " Margin="3"/>
+            <TextBox Name="txtSeparatedString" Grid.Row="0" Margin="3" Text="{Binding SeparatedString}"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding SeparatedList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Text="{Binding ItemValue}" Margin="3"/>
+                            <Button Name="btnDeleteItem" Grid.Column="1" Click="btnDeleteItem_Click" Tag="{Binding}" Cursor="Hand">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Viewbox Width="24" Height="24">
+                                            <Canvas Width="24" Height="24" Background="Transparent">
+                                                <Path Fill="Red" Data="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                            </Canvas>
+                                        </Viewbox>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border BorderBrush="AntiqueWhite" BorderThickness="1">
+                                    <ContentPresenter TextBlock.Foreground="Blue"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+            <Button Name="btnSeparate" Click="btnSeparate_Click" Content="Separate"/>
+            <Button Name="btnMerge" Click="btnMerge_Click" Content="Merge"/>
+        </StackPanel>
+    </Grid>
+</Window>
