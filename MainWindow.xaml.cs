@@ -35,5 +35,10 @@ namespace SemiColonSeparatedStringEditor
         {
             data_model.SeparatedList.Remove((sender as Button).Tag as ItemModel);
         }
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            data_model.SeparatedList.Add(new ItemModel());
+            scrSeparatedList.ScrollToEnd();
+        }
     }
 }
