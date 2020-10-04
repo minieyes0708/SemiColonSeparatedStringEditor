@@ -36,7 +36,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Enter SemiColonSeparatedString Here: " Margin="3" Style="{StaticResource HeaderTextBlock}"/>
+                <TextBlock Text="Enter SemiColon Separated String Here: " Margin="3" Style="{StaticResource HeaderTextBlock}"/>
                 <TextBox Name="txtSeparatedString" Grid.Row="1" Margin="3" Text="{Binding SeparatedString}"/>
             </Grid>
         </Border>
@@ -46,7 +46,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Separated Item List Here:" Margin="3" Style="{StaticResource HeaderTextBlock}"/>
+                <TextBlock Text="Separated Items List Here:" Margin="3" Style="{StaticResource HeaderTextBlock}"/>
                 <ScrollViewer Grid.Row="1" Name="scrSeparatedList">
                     <ItemsControl ItemsSource="{Binding SeparatedList}">
                         <ItemsControl.ItemTemplate>
