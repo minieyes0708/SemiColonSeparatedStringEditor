@@ -12,12 +12,17 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                            <Border BorderThickness="0,0,0,1" BorderBrush="Blue">
+                            <Border BorderThickness="0,0,0,1" BorderBrush="Purple">
                                 <ScrollViewer Name="PART_ContentHost"/>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="HeaderTextBlock">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="DarkRed"/>
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -25,23 +30,23 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border BorderThickness="5,0,0,0" BorderBrush="Blue" Margin="5">
+        <Border BorderThickness="5,0,0,0" BorderBrush="Blue" Margin="5" Background="Azure">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Enter SemiColonSeparatedString Here: " Margin="3"/>
+                <TextBlock Text="Enter SemiColonSeparatedString Here: " Margin="3" Style="{StaticResource HeaderTextBlock}"/>
                 <TextBox Name="txtSeparatedString" Grid.Row="1" Margin="3" Text="{Binding SeparatedString}"/>
             </Grid>
         </Border>
-        <Border Grid.Row="1" BorderThickness="5,0,0,0" BorderBrush="Blue" Margin="5">
+        <Border Grid.Row="1" BorderThickness="5,0,0,0" BorderBrush="Blue" Margin="5" Background="Ivory">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Separated Item List Here:" Margin="3"/>
+                <TextBlock Text="Separated Item List Here:" Margin="3" Style="{StaticResource HeaderTextBlock}"/>
                 <ScrollViewer Grid.Row="1" Name="scrSeparatedList">
                     <ItemsControl ItemsSource="{Binding SeparatedList}">
                         <ItemsControl.ItemTemplate>
